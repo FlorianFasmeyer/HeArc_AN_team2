@@ -61,17 +61,6 @@ can provide.
 dt : Set the difference of time between each step of the simulation. The smaller, the better will be the
 time accuracy, but you will need more time to process and use more memory.
 
---
-
-Advanced options are for advanced users they might cause your web browser to freez. To avoid that you
-can set the maximum iterations to a desired value. Be warned, if the maximum iteration is too low
-the computation of your function will be stopped and plotted as is.
-
-If your can not afford too much iterations you might want a higher Δt 0.001 -> 0.1. On the other side if you have
-enought computational power and want more accuracy on the time it takes to reach terminal velocity
-you might want to lower Δt 0.1 -> 0.001.
-
-
 Files
 -----
 
