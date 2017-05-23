@@ -1,0 +1,217 @@
+<!--
+    Numerical Algorithm - 4nd Labo.
+    (Team A2) Paul Jeanbourquin, Marc Friedli, Florian Fasmeyer.
+    01.05.2017
+-->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <script src="js/d3.v3.min.js"></script>
+  <script src="js/function-plot.js"></script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+  });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script src="AN_Labo4_EquipeA2.js" ></script>
+  <title>Algorithme Numérique Labo 4 - Equipe A2</title>
+  <style>
+    /*
+     *  Just for a "real" table.
+     */
+    td,th{
+      border:solid black 1px;
+      padding-left: 1em;
+      padding-right: 1em;
+      text-align: right;
+    }
+    th{
+      border-bottom: double 2px black;
+    }
+    table{
+      border-collapse: collapse;
+    }
+  </style>
+</head>
+<body id=body >
+  <h1>Algorithme Numérique Labo 4</h1>
+  <div style="font-size:1.4em;">Equipe A2 - Paul Jeanbourquin, Marc Friedli, Florian Fasmeyer</div>
+  <hr />
+  <h2>Cosinus</h2>
+  <p>
+    L'unité de la fonction cos est le radian.
+  </p>
+  <p>
+    cos(kpi)
+  </p>
+  <h3>Calculer pour des valeurs de k</h3>
+  <label for=cosInput>Entrer un valeur de k</label>
+  <input type=text value=0 id=cosInput name=cosInput/>
+  <p id=cosAnswer>
+  </p>
+  <h2>Graphes</h2>
+  <label for=sampleInput >Echantillonnage : </label>
+  <input type=number id=sampleInput name=sampleInput min="1" max="100" value=10 />
+  <h3>Cosinus</h3>
+  <div id=cosPlot>
+
+  </div>
+  <h3>Derivée de Cosinus</h3>
+  <div id=cosDPlot>
+
+  </div>
+  <h3>Seconde de Cosinus</h3>
+  <div id=cosDDPlot>
+
+  </div>
+  <h2>Problème du bateau</h2>
+  <p>
+    $V_{Millieu} = 2 \frac{\textrm{m}}{\textrm{s}} \Rightarrow D'_{Millieu}(t_{Millieu})=2 \Rightarrow D_{Millieu}(t_{Millieu})=2t_{Millieu}$
+  </p>
+  <p>
+    $\textrm{Donc, } t_{Millieu}=\frac{\color{green}{D_{Millieu}}}{2}$
+  </p>
+  <p>
+    $V_{Bord} = 4 \frac{\textrm{m}}{\textrm{s}} \Rightarrow D'_{Bord}(t_{Bord})=4 \Rightarrow D_{Bord}(t_{Bord})=4t_{Bord}$
+  </p>
+  <p>
+    $\textrm{Donc, } t_{Bord}=\frac{\color{blue}{D_{Bord}}}{4}$
+  </p>
+  <p>
+    $T_{Total}=\color{green}{t_{Millieu}}+\color{blue}{t_{Bord}}$
+  </p>
+  <p>
+    $\textrm{Le but est de trouver la fonction } T_{Total}(\alpha) \textrm{ qui, pour un angle }\alpha \textrm{, nous donne le temps total.}$
+  </p>
+  <p>
+    $\textrm{Il nous faut donc trouver les fonctions } \color{blue}{D_{Bord}(\alpha)} \textrm{ et } \color{green}{D_{Millieu}(\alpha)} \textrm{ qui pour }\alpha\textrm{ retournent la distance parcourue.}$
+  </p>
+  <p>
+    $\color{blue}{D_{Bord}(\alpha)} = 2\alpha r$
+  </p>
+  <p>
+    $\color{green}{D_{Millieu}(\alpha)} = 2r\cos{\alpha}$
+  </p>
+  <p>
+    $T_{Total}(\alpha)=\frac{2\alpha r}{4}+\frac{2r\cos{\alpha}}{4}\textrm{ Infos: r peut être mis en évidence. Il joue donc le rôle d'un coefficient d'agrandissement. Il peut être ignoré (r=1).}$
+  </p>
+  <p>
+    $\textrm{Ce qui donne : }T_{Total}(\alpha)=\frac{2\alpha}{4}+\frac{2\cos{\alpha}}{2}=\frac{1}{2}\alpha+\cos{\alpha}$
+  </p>
+  <p>
+    $\textrm{Voici le graphe de la fonction } T_{Total}(\alpha) \textrm{ sur l'interval }0\textrm{, } \frac{\pi}{2}$
+  </p>
+  <div id=boatTimePlot>
+
+  </div>
+  <p>
+    $\textrm{Recherche des extremums dans cet interval : }T'_{Total}(\alpha)=0 \Rightarrow \alpha=\frac{\pi}{6} \textrm{ est le seul extremum.}$
+  </p>
+  <p>
+    $\textrm{Mais, comme nous le voyons sur le graphe, il ne peut pas s'agir d'un minimum local.}$
+  </p>
+  <p>
+    $ \textrm{En revanche, nous voyons que le minimum local sur l'interval 0 à }\frac{\pi}{2}\textrm{ est }\frac{\pi}{2}\textrm{.}$
+  </p>
+  <p>
+    $\frac{\pi}{2}\textrm{ est donc la valeur de }\alpha\textrm{ pour laquelle }T_{Total}\textrm{ sera le plus petit.}$
+  </p>
+  <p>
+    $\textrm{En conclusion, il est plus rapide de ne passer que par le bord du cercle et ce, pour tous rayons possibles.}$
+  </p>
+  <hr />
+  <footer>
+    This document is certified 100% HTML5 valid by <a href="https://validator.w3.org">W3C Validator</a>.
+  </footer>
+  <script>
+    function PlotCosAndDerivate(){
+      let sample = (parseInt(sampleInput.value)>=parseInt(sampleInput.min) && parseInt(sampleInput.value)<=parseInt(sampleInput.max))?parseInt(sampleInput.value):10;
+      //  Plot cos.
+      functionPlot({
+        target: '#cosPlot',
+        data: [{
+          points: evaluateFunction(cos,-2*Math.PI,2*Math.PI,sample),
+          fnType: 'points',
+          graphType: 'polyline'
+        }],
+        plugins: [
+          functionPlot.plugins.zoomBox()
+        ]
+      });
+
+      //  Plot cos'.
+      functionPlot({
+        target: '#cosDPlot',
+        data: [{
+          points: evaluateFunction(derivate(cos),-2*Math.PI,2*Math.PI,sample),
+          fnType: 'points',
+          graphType: 'polyline'
+        }],
+        plugins: [
+          functionPlot.plugins.zoomBox()
+        ]
+      });
+
+      //  Plot cos''.
+      functionPlot({
+        target: '#cosDDPlot',
+        data: [{
+          points: evaluateFunction(derivate(cos,2),-2*Math.PI,2*Math.PI,sample),
+          fnType: 'points',
+          graphType: 'polyline'
+        }],
+        plugins: [
+          functionPlot.plugins.zoomBox()
+        ]
+      });
+    }
+
+    function calculateCosK(){
+      let k = cosInput.value;
+      if(!isNaN(k)){
+        let answer = cos(k*Math.PI);
+        cosAnswer.innerHTML = "cos("+k+"pi)="+answer.toFixed(7)+"";
+      }
+    }
+
+    function boatCalculate(){
+      let Ttot = function(a){
+        return ((2*a)/4) + cos(a);
+      }
+
+      functionPlot({
+        target: '#boatTimePlot',
+        xAxis: {
+          domain: [0,Math.PI/2]
+        },
+        yAxis: {
+          domain: [0.75,1.2]
+        },
+        data: [{
+          points: evaluateFunction(Ttot,0*Math.PI,Math.PI/2,100),
+          fnType: 'points',
+          graphType: 'polyline'
+        }
+      ],
+      plugins: [
+        functionPlot.plugins.zoomBox()
+      ]
+      });
+    }
+
+    body.onload=function(e){
+      PlotCosAndDerivate();
+      calculateCosK();
+      boatCalculate();
+    };
+    sampleInput.onchange=function(e){
+      PlotCosAndDerivate();
+    }
+    cosInput.oninput=function(e){
+      calculateCosK();
+    }
+  </script>
+</body>
+</html>

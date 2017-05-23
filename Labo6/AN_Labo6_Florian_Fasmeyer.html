@@ -1,0 +1,152 @@
+﻿<!--
+    Numerical Algorithm - 6th Lab.
+    Florian Fasmeyer.
+    21.05.2017
+-->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <script src="AN_Labo6_Florian_Fasmeyer.js" ></script>
+  <script src="js/d3.v3.min.js"></script>
+  <script src="js/function-plot.js"></script>
+  <title>AN_Labo6_Florian_Fasmeyer</title>
+</head>
+<body id=body onload="Plot()">
+  <h1 style="margin-bottom:5px;">Numerical Algorithms Lab. 6</h1>
+  <div style="font-size:16px;">Florian Fasmeyer</div>
+  <hr>
+  <h2 style="margin-bottom: 0px;">Parachute simulation</h2>
+  <table>
+	  <tr>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td style="text-align:center; font-size: 14px;"><span>Advanced</span></td>
+	  </tr>
+	  <tr>
+		<td><span>Velocity</span></td>
+		<td>(m/s)</td>
+		<td><input type="text" id="velocity_" value="-10"
+			onkeyup="Plot()"/>
+		</td>
+		<td style="padding-left: 30px;">Accu.</td>
+		<td><input type="text" id="accu" value="0.0001"
+			onkeyup="Plot()"/></td>
+	  </tr>
+	  <tr>
+		<td><span>Area</span></td>
+		<td>(m^2)</td>
+		<td><input type="text" id="area" value="28"
+			onkeyup="Plot()"/>
+		</td>
+		<td style="padding-left: 30px;">Iter.</td>
+		<td><input type="text" id="iter" value="1E5"
+			onkeyup="Plot()"/></td>
+	  </tr>
+	  <tr>
+		<td><span>Mass</span></td>
+		<td>(Kg)</td>
+		<td><input type="text" id="mass" value="70"
+			onkeyup="Plot()"/>
+		</td>
+		<td style="padding-left: 30px;">Δt</td>
+		<td><input type="text" id="dt" value="0.005"
+			onkeyup="Plot()"/></td>
+	  </tr>
+  </table>
+  <div id="simFall" >
+  </div>
+  <div id="info">
+  </div>
+  <div id="procTime">
+  </div>
+  <div id="dtError" style="color:red">
+  </div>
+  <div id="alertVel" style="color:red">
+  </div>
+  <footer>
+  This document is certified 100% HTML5 valid by <a href="https://validator.w3.org">W3C Validator</a>.
+  </footer>
+  <script>
+	function Plot(){
+
+		let para = new Parachute();
+		para.setMass(Number(mass.value));
+		para.setVelocity(Number(velocity_.value));
+		para.setArea(Number(area.value));
+		para.setDt(Number(dt.value));
+		para.setIterMax(Number(iter.value));
+		para.setAccuracy(Number(accu.value))
+		
+		let points = new Array();
+		points = para.deploy();
+		
+		let temp = points[points.length-1][0];
+		let xDomain = [0, (temp==0)?0.1:temp];
+		
+		let min=points[0][1];
+		let max=points[0][1];
+		for(let i=0; i<points.length; i++){
+			max=(points[i][1]>max)?points[i][1]:max;
+			min=(points[i][1]<min)?points[i][1]:min;
+		}
+		if(max==min)
+			max+=0.1;
+		let yDomain = [min, max];
+
+		let velResult=para.termVel()+points[points.length-1][1];
+		
+		if (velResult<=0)
+			velResult=1;
+		let text = ("Terminal velocity: "+para.termVel().toFixed(Math.log10(1/velResult))+"</br>"+
+			"Approximated terminal velocity: "+ -points[points.length-1][1].toFixed(Math.log10(1/velResult))+ "</br>"+
+			"Δtv: "+Math.abs(velResult).toFixed(Math.log10(1/velResult))+
+			" - Process time: "+ para.procTime.toFixed(2) +"ms</br></br>")
+		para.displayText(text, "info");
+		
+		if(para.error==true){
+			para.displayText("Δt too low!</br>", "dtError");
+		}
+		else{
+			para.displayText("", "dtError");
+		}
+		
+		
+		//https://fr.wikipedia.org/wiki/Nombre_de_Mach#.C3.89coulement_supersonique
+		if(Math.abs(velocity_.value)>340*1.2){
+			para.displayText("WARNING: Super sonic speeds reached! The parachute might burn! :-(</br>", "alertVel");
+		}
+		else if(Math.abs(velocity_.value)>340*0.94){
+			para.displayText("WARNING: Transsonic speeds reached! The parachute might break!</br>", "alertVel");
+		}
+		else{
+			para.displayText("", "alertVel");
+		}
+
+		
+		functionPlot({
+			target: '#simFall',
+			xAxis: {
+				label: 'sec.',
+				domain: xDomain
+			},
+			yAxis: {
+				label: 'm/s',
+				domain: yDomain
+			},
+			data: [{
+				points: points,
+				fnType: 'points',
+				graphType: 'polyline',
+			}],
+			grid: true,
+			plugins: [
+				functionPlot.plugins.zoomBox()
+			]
+		});
+	}
+	</script>
+</body>
+</html>

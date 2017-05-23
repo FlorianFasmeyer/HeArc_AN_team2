@@ -1,0 +1,77 @@
+<!--
+    Numerical Algorithm - 2nd Labo.
+    Paul Jeanbourquin, Marc Friedli, Florian Fasmeyer
+    27.03.2017
+-->
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script src="js/d3.v3.min.js"></script>
+  <script src="js/function-plot.js"></script>
+  <script src="labo2.js" ></script>
+  <title>Algorithme Numérique Labo 2 - Equipe A2</title>
+  <style>
+    /*
+     *  Just for a "real" table
+     */
+    td,th{
+      border:solid black 1px;
+      padding-left: 1em;
+      padding-right: 1em;
+      text-align: right;
+    }
+    th{
+      border-bottom: double 2px black;
+    }
+    table{
+      border-collapse: collapse;
+    }
+  </style>
+</head>
+<body>
+  <h1>Algorithme Numérique Labo 2</h1>
+  <div style="font-size:1.4em;">Equipe A2 - Paul Jeanbourquin, Marc Friedli, Florian Fasmeyer</div>
+  <h2>Fonction 1</h2>
+  <p>
+  <code>
+    f(x)=sin(x)-(x/13)
+  </code>
+  </p>
+  <input type=button value="Trouver les racines" onclick="ExecuteSolveF1();" />
+  <h3>Graphique</h3>
+  <div id="plotF1">
+
+  </div>
+  <span id="disclaimerF1">Appuyer sur "Trouver les racines" pour voir un graphe</span>
+  <br />
+  <h3>Racines</h3>
+  <table id=rootsF1><tr>
+    <td>
+      Appuyer sur "Trouver les racines" pour voir les racines
+    </td>
+  </tr></table>
+  <span id=durationF1></span>
+  <p>
+  <h2>Fonction 2</h2>
+  <code>
+    g(x)=x/(1-x^2)
+  </code>
+  </p>
+  <input type=button value="Trouver les racines" onclick="ExecuteSolveF2();" />
+  <h3>Graphique</h3>
+  <div id="plotF2">
+
+  </div>
+  <span id="disclaimerF2">Appuyer sur "Trouver les racines" pour voir un graphe</span>
+  <br />
+  <h3>Racines</h3>
+  <table id=rootsF2><tr>
+    <td>
+      Appuyer sur "Trouver les racines" pour voir les racines
+    </td>
+  </tr></table>
+  <span id=durationF2></span>
+</body>
+<script>
+</script>
+</html>
