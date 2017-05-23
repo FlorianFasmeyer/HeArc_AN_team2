@@ -20,3 +20,12 @@ Made a script which solve linear systems with the Gauss's method.
 ### Laboratory 4
 
 Made a script which implement and derive cosine.
+
+### Laboratory 5
+
+Made a script which implement Simpson's method.
+
+### Laboratory 6
+
+Made a script which simulate the velocity over time of an object with a parachute.
+
