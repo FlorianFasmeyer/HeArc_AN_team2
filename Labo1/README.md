@@ -17,15 +17,10 @@ Our type uses 1 bit for the sign (+/-), 9 bits for the exponent and 27 bits for 
 
 The exponent is capable of storing 511 different values in binary. To accommodate the representation of infinitesimally small values in our floating point system, we adjust the exponent to support negative values. To achieve this, we subtract half of 510 (i.e., 255) from the exponent. This modification results in an exponent range spanning from 255 to -255.
 
-	e	[510;0]
-	e-255 	[255;-255]
+	e		[510;0]
+	e-255 		[255;-255]
+ 	e (decimal)	[+76;-77]
 
-With an exponent of 0, the hidden bit has a value of 0.5
-as our mantissa with hidden bit looks like:
-
-	0.1xxx xxxx xxxx xxxx xxxx xxxx xxxx
-
-e(deci)	[+76;-77]
 			
 ## Mantissa (27 bits)
 
@@ -48,7 +43,11 @@ Accurate up to 2^28 for exponents*. In other words, the accuracy spans the range
 	
 ![visualisation of every values covered by a floating point type](https://jasss.soc.surrey.ac.uk/9/4/4/fig1.jpg)
 
-	
+With an exponent and mantissa of 0, the hidden bit has a value of 0.5 and the mantissa with hidden bit is represented in this manner: 
+
+	0.1xxx xxxx xxxx xxxx xxxx xxxx xxxx
+
+ 
 ## Manual
 
 	Numerical operations:
