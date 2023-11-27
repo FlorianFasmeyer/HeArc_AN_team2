@@ -44,7 +44,7 @@ The mantissa determines the accuracy of our results. In the classical 32-bit flo
 	accuracy (decimal)   	8 decimals	268'435'456
 
 
-Accurate up to 2^28 for exponents*. In other words, the accuracy spans the range from 0 to 268,435,456. However, as soon as you add 1 to this range, the first inaccuracy emerges, as the precision fails to increment. As a rule of thumb, you consistently maintain at least 8 decimals accuracy. While it is possible to have 9 decimals, this level of precision is not applicable to all values, so caution is advised. The following example demonstrates those "ranges" of accuracy. Every line represents a number covered by the floating-point representation, with each stack composed of 268'435'456 lines:
+Accurate up to 2^28 for exponents*. In other words, the accuracy spans the range from 0 to 268,435,456. However, as soon as you add 1 to this range, the first inaccuracy emerges, as the precision fails to increment. As a rule of thumb, with our 37-bit type, you need to maintain at least 8 decimals of accuracy consistently. The following example demonstrates those "ranges" of accuracy. Every line represents a number covered by the floating-point representation, with each stack composed of 268'435'456 lines:
 	
 ![visualisation of every values covered by a floating point type](https://jasss.soc.surrey.ac.uk/9/4/4/fig1.jpg)
 
