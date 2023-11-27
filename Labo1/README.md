@@ -7,7 +7,7 @@
 	Paul Ami Jeanbourquin
 
 
-# Description:	
+## Description
 
 In this exercise, we create a custom floating
 point type with 37 pseudo bits. Those pseudo
@@ -24,7 +24,7 @@ And finally, the value is stored in the mantissa.
 	
 Specs:
 	
-# Exponent:	
+## Exponent
 
 e	[510;0]
 e-255 	[255;-255]
@@ -36,7 +36,7 @@ as our mantissa with hidden bit looks like:
 
 e(deci)	[+76;-77]
 			
-# Mantissa:	
+## Mantissa
 
 accuracy		28 bits	  	[1]111 1111 1111 1111 1111 1111 1111
 accuracy(deci) 	   	8 decimals	268'435'456
@@ -54,7 +54,7 @@ every line in this picture represents a number. Each stack is composed
 of 268'435'456 lines.
 		
 	
-# Manual:
+## Manual
 
 	Numerical operations:
 		
@@ -99,7 +99,7 @@ of 268'435'456 lines.
 		-0 even if only displayed as 0 will behave properly
 		as 1/(-0) = -Infinity
 		
-# File content:
+## File content
 	
 	README.txt	-	The very file you are reading right now...
 	labo1.html	-	Display the results of the project
@@ -114,7 +114,7 @@ of 268'435'456 lines.
 		test.html
 		test2.html
 		
-# Author commentary:
+## Author commentary
 
 We initially chose not to utilize typedArray objects, stating that for sizes exceeding 32 bits, only 'Float64Array' was available. However, we later discovered that this statement was inaccurate. We could have employed a 32-bit typed array, such as Uint32Array for the mantissa, Uint16Array for the exponent, and a single boolean for the sign. The decision to stick with the initial approach was made despite this realization, leading to relatively processor-intensive binary operations for their intended purpose.
 
