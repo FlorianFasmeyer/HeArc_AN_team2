@@ -41,7 +41,7 @@ User manual
 
 ### How to use this parachute simulator?
 
-Open the HTML file in a web browser (Firefox) and have fun!
+Open the [HTML file](https://htmlpreview.github.io/?https://github.com/FlorianFasmeyer/HeArc_AN_team2/blob/master/Labo6/AN_Labo6_Florian_Fasmeyer.html) in a web browser (Firefox, NO chromium!) and have fun!
 
 ### Options
 
