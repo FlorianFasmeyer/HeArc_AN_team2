@@ -48,10 +48,6 @@ Accurate up to 2^28 for exponents*. In other words, the accuracy spans the range
 	
 ![visualisation of every values covered by a floating point type](https://jasss.soc.surrey.ac.uk/9/4/4/fig1.jpg)
 
-With an exponent and mantissa of 0, the hidden bit has a value of 0.5 and the mantissa with hidden bit is represented in this manner: 
-
-	0.1xxx xxxx xxxx xxxx xxxx xxxx xxxx
-
  
 ## Manual
 
