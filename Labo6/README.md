@@ -6,10 +6,20 @@
     Date: 23rd May 2017
     [Readable README](https://github.com/TheGoo-ooo/HeArc_AN_team2/tree/master/Labo6)
 
+Try It Yourself
+---------------
+
+Click on the link to [run the tool](https://htmlpreview.github.io/?https://github.com/FlorianFasmeyer/HeArc_AN_team2/blob/master/Labo6/AN_Labo6_Florian_Fasmeyer.html).
+
+
 Objectives
 ----------
 
-The objective of this laboratory is to create a program capable of simulating the velocity over time of a falling object with a parachute. The code must be as simple as possible. The approximation is meant to be quick so the user can toy around with the interface in real time. The user should be able to limit the maximum number of iterations/use of memory so that it does not prevent users with potato-level spec computers from running it.
+This laboratory aims to develop a program that simulates the velocity over time of a falling object equipped with a parachute. The primary goal is to keep the code simple for ease of use. The simulation is designed to provide quick approximations, enabling users to interact with the interface in real-time. Additionally, users should have the flexibility to set limits on the maximum number of iterations or memory usage to ensure that the program remains accessible even for users with potato-spec computers (my laptop).
+
+In essence, this project serves as a thinly veiled pretext to indulge in my passion for space exploration while ostensibly aligning with the coursework requirements of my Bachelor's program. It involves advancing skills in [Kerbal Space Program](https://www.kerbalspaceprogram.com/), creating a valuable tool for the realism mod (In which the starting planet has a similar atmosphere density), all the while fulfilling a crucial graded assignment.
+
+
 
 Method
 ------
