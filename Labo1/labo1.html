@@ -37,15 +37,16 @@ Paul Jeanbourquin
   </div>
 
   <h3>Conversion binaire >> decimal</h3>
-    <span>Entrez un nombre signe : </span>
+    <span>Entrez un nombre en binaire: </span><br/>
+    <span style="width: 100px;" >Signe(+/-) : </span>
     <input type=number id="signeEntry"
 	onkeyup="displayBinToDec(signeEntry, expoEntry, mantisseEntry)" 
 	onclick="displayBinToDec(signeEntry, expoEntry, mantisseEntry)"/></br>
-    <span>Entrez un nombre exposant : </span>
+    <span style="width: 100px;" >Exposant : </span>
     <input type=number id="expoEntry"
 	onkeyup="displayBinToDec(signeEntry, expoEntry, mantisseEntry)" 
 	onclick="displayBinToDec(signeEntry, expoEntry, mantisseEntry)"/></br>
-    <span>Entrez un nombre mantisse* : </span>
+    <span style="width: 100px;" >Mantisse* : </span>
     <input type=number id="mantisseEntry"
 	onkeyup="displayBinToDec(signeEntry, expoEntry, mantisseEntry)" 
 	onclick="displayBinToDec(signeEntry, expoEntry, mantisseEntry)"/>
@@ -57,7 +58,7 @@ Paul Jeanbourquin
   </div>
 
   <h3>Addition</h3>
-    <span>Nombres : </span>
+    <span>Ajoutez deux nombres décimaux : </span>
     <input type=text id="add1Entry" step="any"
 	onchange="displayAdd(add1Entry, add2Entry)"
 	onkeyup="displayAdd(add1Entry, add2Entry)"/>
