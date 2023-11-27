@@ -4,7 +4,6 @@
     Authors: Florian Fasmeyer
     School: HE-Arc - Ingénierie (Neuchâtel, Switzerland)
     Date: 23rd May 2017
-    [Readable README](https://github.com/TheGoo-ooo/HeArc_AN_team2/tree/master/Labo6)
 
 ![Example](https://github.com/FlorianFasmeyer/HeArc_AN_team2/blob/master/Labo6/standard.png)
 
