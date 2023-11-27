@@ -2,20 +2,30 @@
 	Numeric Algorithm course, team2 
 	HES-SO HE-ARC - 09.03.2017
 	
-	Marc Friedli
-	Paul Ami Jeanbourquin
 	Florian Fasmeyer
+ 	Marc Friedli
+	Paul Ami Jeanbourquin
+	
 
 Description:	
 
-	TeamTwo is a floating type of 37 pseudo bits.
-	bit are being simulated with arrays, get/set
-	functions ensure that they behave as such. 
+	In this exercise, we create a custom floating
+ 	point type with 37 pseudo bits. Those pseudo
+  	bits are simulated within three arrays.
+
+   	What is a floating point type?
+    	A floating point is a way to represent real
+     	numbers such as Pi = 3.14159.
+
+      	How is a floating point structured?
+       	A sign bit to indicate the +/- signed.
+	An exponent to choose the scale of the number.
+ 	And finally, the value is stored in the mantissa.
 	
 Specs:
 	
 	Exponent:	
-		
+
 		e	[510;0]
 		e-255 	[255;-255]
 		
@@ -31,16 +41,16 @@ Specs:
 		accuracy		28 bits	  	[1]111 1111 1111 1111 1111 1111 1111
 		accuracy(deci) 	   	8 decimals	268'435'456
 		
-		Can represent every integers from 268'435'456 to -268'435'456 without innacuracy
+		Can represent every integer from 268'435'456 to -268'435'456 without inaccuracy
 		
 		Accurate on 2^28 per exponents*. In other words, from 0 to 268'435'456
-		as soon as you add 1, you get your first innacuracy as it does not 
-		increment. Rule of thumbs, in decimal you always have at least 8 bits 
-		of accuracy. You can have 9 bits but not for all values, be careful!
+		as soon as you add 1, you get your first inaccuracy, as it does not 
+		increment. Rule of thumbs: in decimal, you always have at least 8 bits 
+		of accuracy. You can have 9 bits but not for all values; be careful!
 		
-		*For a visual explanation: 
-			http://cs.smith.edu/dftwiki/images/f/f1/CSC231RangeOfFloats.jpg
-		every lines in this picture represents a number. Each stacks is composed
+			![](https://jasss.soc.surrey.ac.uk/9/4/4/fig1.jpg)
+   
+		every line in this picture represents a number. Each stack is composed
 		of 268'435'456 lines.
 		
 	
