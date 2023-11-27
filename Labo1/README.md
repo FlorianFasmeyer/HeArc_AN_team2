@@ -8,7 +8,7 @@
 
 ## Access the floating-point visualisation
 
-Click on the link to access the [floating-point sandbox](https://htmlpreview.github.io/?https://github.com/FlorianFasmeyer/HeArc_AN_team2/blob/master/Labo1/labo1.html) using the Html Preview tool.
+Click on the link to access the [floating-point sandbox](https://htmlpreview.github.io/?https://github.com/FlorianFasmeyer/HeArc_AN_team2/blob/master/Labo1/labo1.html) using HTML Preview.
 
 
 
