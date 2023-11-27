@@ -7,8 +7,6 @@
     [Readable README](https://github.com/TheGoo-ooo/HeArc_AN_team2/tree/master/Labo6)
 
 ![Example](https://github.com/FlorianFasmeyer/HeArc_AN_team2/blob/master/Labo6/standard.png)
-![Example - trans sonic](https://github.com/FlorianFasmeyer/HeArc_AN_team2/blob/master/Labo6/transsonic.png)
-![Example - super sonic](https://github.com/FlorianFasmeyer/HeArc_AN_team2/blob/master/Labo6/supersonic.png)
 
 Try It Yourself
 ---------------
@@ -61,6 +59,12 @@ Before using those variables, you must know what you are doing; you might freeze
 * Iter.: Set the maximum number of iterations. Make sure you never require more memory than your computer can provide. 
 * dt: Set the difference of time between each step of the simulation. The smaller, the better will be the time accuracy, but you will need more time to process and use more memory.
 
+### Error messages
+
+![Example - trans sonic](https://github.com/FlorianFasmeyer/HeArc_AN_team2/blob/master/Labo6/transsonic.png)
+
+![Example - super sonic](https://github.com/FlorianFasmeyer/HeArc_AN_team2/blob/master/Labo6/supersonic.png)
+
 Files
 -----
 
@@ -73,4 +77,4 @@ Conclusion
 
 This program works well; the default advanced settings allow the user enough freedom to play and experiment while being incredibly fast and seamless. Advanced settings are available for users with more RAM and computational power to require more accurate results.
 
-NB: This application is meant to be used live with the graph changing as the user changes the variables. Due to the nature of differential functions, allowing too many iterations to occur can cause issues since every change in variable will trigger a calculation.
+NB: This application is meant to be used live, with the graph changing as the user changes the variables. Due to the nature of differential functions, allowing too many iterations to occur can cause issues since every change in the variable will trigger a calculation.
