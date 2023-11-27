@@ -47,14 +47,14 @@ Open the [HTML file](https://htmlpreview.github.io/?https://github.com/FlorianFa
 ### Options
 
 * Mass: Set the mass of your object + parachute
-* Velocity: Set the initial velocity of your object. Positive is going up.
-* Area: Area of the parachute. The bigger, the faster it will slow.
+* Velocity: Set the initial velocity of your object. ***Positive values mean the object is going up.***
+* Area: Area of the parachute. The bigger, the faster/stronger it will slow down.
 
 ### Advanced options
 
-Before using those variables, you must know what you are doing; you might freeze your browser for a few seconds otherwise.
+Before using those variables, you must know what you are doing; you might freeze your browser otherwise.
 
-* Accuracy: Set the accuracy of dv. The smaller the more accurate it will be. If dt is too high, you might lose time accuracy as the velocity already reached the best terminal velocity given dt.
+* Accuracy: Set the accuracy of dv. The smaller the more accurate it will be. If dt is too high, you might lose time accuracy as the velocity has already reached the best terminal velocity given dt.
 * Iter.: Set the maximum number of iterations. Make sure you never require more memory than your computer can provide. 
 * dt: Set the difference of time between each step of the simulation. The smaller, the better will be the time accuracy, but you will need more time to process and use more memory.
 
