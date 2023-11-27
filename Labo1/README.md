@@ -9,50 +9,45 @@
 
 ## Description
 
-In this exercise, we create a custom floating
-point type with 37 pseudo bits. Those pseudo
-bits are simulated within three arrays.
+In this exercise, we crafted a custom floating-point type with 37 pseudo bits instead of 32. Floating-point types are designed to represent real numbers, such as the constant Pi (e.g., Pi = 3.14159). The structure of the floating-point type involves a sign bit, indicating the positive or negative sign, an exponent that determines the scale of the number, and the storage of the value in the mantissa array.
 
-What is a floating point type?
-A floating point is a way to represent real
-numbers such as Pi = 3.14159.
-
-How is a floating point structured?
-A sign bit to indicate the +/- signed.
-An exponent to choose the scale of the number.
-And finally, the value is stored in the mantissa.
+Our type uses 1 bit for the sign (+/-), 9 bits for the exponent and 27 bits for the mantissa.
 	
-Specs:
-	
-## Exponent
+## Exponent (9 bits)
 
-e	[510;0]
-e-255 	[255;-255]
+The exponent is capable of storing 511 different values in binary. To accommodate the representation of infinitesimally small values in our floating point system, we adjust the exponent to support negative values. To achieve this, we subtract half of 510 (i.e., 255) from the exponent. This modification results in an exponent range spanning from 255 to -255.
 
-With an exponent of 0 the hidden bit has a value of 0.5
+	e	[510;0]
+	e-255 	[255;-255]
+
+With an exponent of 0, the hidden bit has a value of 0.5
 as our mantissa with hidden bit looks like:
 
 	0.1xxx xxxx xxxx xxxx xxxx xxxx xxxx
 
 e(deci)	[+76;-77]
 			
-## Mantissa
+## Mantissa (27 bits)
 
-accuracy		28 bits	  	[1]111 1111 1111 1111 1111 1111 1111
-accuracy(deci) 	   	8 decimals	268'435'456
+A mantissa represents the number being used in the numerical representation. In the following (but simplified) example, a decimal representation, -1.234, has a sign of (-), an exponent of -3 and a mantissa of 1234.
 
-Can represent every integer from 268'435'456 to -268'435'456 without inaccuracy
+	# This representation might be inaccurate but conveys the idea effectively.
+ 	-1.234 =  (-)1234 * 10^-3 
 
-Accurate on 2^28 per exponents*. In other words, from 0 to 268'435'456
-as soon as you add 1, you get your first inaccuracy, as it does not 
-increment. Rule of thumbs: in decimal, you always have at least 8 bits 
-of accuracy. You can have 9 bits but not for all values; be careful!
+In binary, the first bit of the mantissa is always active. Therefore, it is not stored and is instead implied. This means that our floating-point number is 37 bits + 1 implied bit.
+
+The mantissa determines the accuracy of our results. In the classical 32-bit floating points, numbers with more than 6 significative decimals tend to lose accuracy. For example, in Python, 0.2 + 0.1 = 0.30000000000000004. Given the 17 decimal accuracy (before encountering an error), we can deduce that Python's floating points use 64-bit floating-points. As shown, we can represent every integer from 268'435'456 to -268'435'456 without inaccuracy.
+
+	# This example demonstrates the existence of the hidden bit and how we determine...
+ 	# ... the min/max value before losing accuracy.
+	accuracy		27 + 1 bits	[1]111 1111 1111 1111 1111 1111 1111
+	accuracy (decimal)   	8 decimals	268'435'456
+
+
+Accurate up to 2^28 for exponents*. In other words, the accuracy spans the range from 0 to 268,435,456. However, as soon as you add 1 to this range, the first inaccuracy emerges, as the precision fails to increment. As a rule of thumb, you consistently maintain at least 8 decimals accuracy. While it is possible to have 9 decimals, this level of precision is not applicable to all values, so caution is advised. The following example demonstrates those "ranges" of accuracy. Every line represents a number covered by the floating-point representation, with each stack composed of 268'435'456 lines:
 	
 ![visualisation of every values covered by a floating point type](https://jasss.soc.surrey.ac.uk/9/4/4/fig1.jpg)
 
-every line in this picture represents a number. Each stack is composed
-of 268'435'456 lines.
-		
 	
 ## Manual
 
@@ -101,7 +96,7 @@ of 268'435'456 lines.
 		
 ## File content
 	
-	README.txt	-	The very file you are reading right now...
+	README.txt	-	YOU ARE HERE !
 	labo1.html	-	Display the results of the project
 	js
 		main.js			-	demonstrate the use of the TeamTwo type
